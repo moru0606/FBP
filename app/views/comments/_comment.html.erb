@@ -1,0 +1,5 @@
+<div><%= comment.created_at %></div>
+<div><%= comment.comment %></div>
+    <%= link_to '削除', [comment.post, comment],class: 'btn btn-outline-danger btn-sm',
+              method: :delete,
+              data: { confirm:'本当に削除してもよろしいですか'} %>

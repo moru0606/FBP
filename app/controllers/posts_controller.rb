@@ -15,7 +15,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     if @post.save
-      flash[:success] = '投稿されました'
+      flash[:success] = "「#{@post.title}」を作成しました"
       redirect_to @post
     else   
       flash.now[:danger] = '投稿できませんでした'
@@ -26,7 +26,7 @@ class PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
-    flash[:success] = '投稿は削除されました'
+    flash[:success] = "「#{@post.title}」を削除しました"
     redirect_to posts_url
   end
 

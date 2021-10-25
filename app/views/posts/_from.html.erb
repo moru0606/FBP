@@ -1,0 +1,16 @@
+<%= form_with(model: @post) do |f| %>
+  
+  <div class="form-group"> 
+    <%= f.label :title, 'タイトル(50文字未満)' %>
+    <%= f.text_field :title, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :content, '内容(10文字以上255文字未満)' %>
+    <%= f.text_area :content, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :image, '画像' %>
+    <%= f.file_field :image, class: 'form-control' %>
+  </div>
+  <%= f.submit '保存', class: 'btn btn-primary' %>
+<% end %>

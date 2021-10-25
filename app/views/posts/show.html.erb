@@ -1,7 +1,9 @@
-<h1>投稿詳細ページ</h1>
+<h4><%= @post.title %></h4>
   <%= link_to '一覧に戻る', posts_path, class: 'btn-btn-outline-secondary' %>
   <Hr>
   <div>タイトル:<%= @post.title %></div>
-  <div>内容:<%= @post.content %></div>
-  <div><%= image_tag @post.image.url, size: "150x150" if @post.image %></div>
-  
+  <div>内容:<%= simple_format(@post.content) %></div>
+  <div><%= image_tag @post.image.url, size: "150x150" if @post.image? %></div>
+  <div><%= render @post.comments %></div>
+  <div><%= render 'comments/form' %>
+  </div>
