@@ -1,4 +1,18 @@
-<h1>FBP</h1>
+<div class="top__items">
+
+
+  <div class="ml-auto boards__linkBox">
+    <%= form_with url: posts_path, method: :get, class: 'posts__searchForm' do %>
+      <%= select_tag :category_id,
+                options_from_collection_for_select(Category.all, :id, :name, params[:category_id]),
+                {
+                  prompt: 'カテゴリーを選択',
+                  class: 'form-control posts_select',
+                  onchange: 'submit(this.form);'
+                } %>
+    <% end %>
+  </div>
+<%= link_to '新規投稿', new_post_path, class: 'btn btn-outline-primary' %>
   <% @posts.each do |post| %>
     <p><%= post.title %></p>
     <p><%= simple_format(post.content) %></p>
