@@ -1,7 +1,8 @@
 <div class="card">
   <div class="card-header">
-  <h1><%= @user.name %>詳細ページ</h1>
+  <h4><%= @user.name %>詳細ページ</h4>
   </div>
+
   <div class="card-body">
       
     <% if @user.image? %>                                                              
@@ -11,8 +12,9 @@
       <%= image_tag "default.png", size: "150x150" %>
     <% end %>
 
-    
-    
+    <h5 class="card-title">プロフィール</h5>
+    <p class="card-text"><%= simple_format(@user.profile) %></p> 
+  </div>    
 </div>
 
   
