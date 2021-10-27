@@ -1,5 +1,29 @@
-<div><%= comment.created_at %></div>
-<div><%= comment.comment %></div>
-    <%= link_to '削除', [comment.post, comment],class: 'btn btn-outline-danger btn-sm',
-              method: :delete,
-              data: { confirm:'本当に削除してもよろしいですか'} %>
+
+<div class="comment-group">
+    <div class="comment_group_item ">
+        <div class="top_item">
+            <% if comment.user.image? %>                                                              
+                <%= image_tag comment.user.image.url, class: "rounded-circle", size: "80x80" %>
+                <!--##画像が設定されてない場合-->
+            <% else %>
+                <%= image_tag "default.png", size: "80x80" %>
+            <% end %>
+        </div>
+    <div class="comment_box">
+        <div class="item_left">
+        <p><%= comment.user.name %> : <%= comment.created_at %></p>
+            <h5><%= simple_format(comment.comment) %></h5>
+        </div>
+        <div class="item_rigth">
+            <% if logged_in? && current_user.id == comment.user_id %>
+                
+                <%= link_to '削除', [comment.post, comment],class: 'btn btn-outline-danger btn-sm',
+                        method: :delete,
+                        data: { confirm: "本当に削除してもよろしいですか？" } %>
+            <% end %>
+            
+        </div>
+    </div>
+    </div>
+</div>
+<Hr>

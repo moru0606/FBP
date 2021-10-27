@@ -14,6 +14,10 @@
 
     <h5 class="card-title">プロフィール</h5>
     <p class="card-text"><%= simple_format(@user.profile) %></p> 
+      <% @posts.each do |post| %>
+          <hr>
+          <p>投稿内容: <%=link_to post.content, post_path(post.id) %></p>
+        <% end %>
   </div>    
 </div>
 
