@@ -50,5 +50,5 @@ end
 
 def correct_user_page
   @user = User.find(params[:id])
-  redirect_to(@user) unless @user == current_user
+  redirect_to(root_url) unless @user == current_user
 end

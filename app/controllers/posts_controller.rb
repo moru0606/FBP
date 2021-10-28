@@ -1,11 +1,12 @@
 class PostsController < ApplicationController
+  before_action :set_target_post, only: %i[show destroy]
   before_action :require_user_logged_in?
+
   def index
     @posts = params[:category_id].present? ? Category.find(params[:category_id]).posts.order('id DESC') : Post.order('id DESC')
   end
 
   def show
-    @post = Post.find(params[:id])
   end
 
   def new
@@ -24,15 +25,18 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @post = Post.find(params[:id])
     @post.destroy
     flash[:success] = "「#{@post.title}」を削除しました"
     redirect_to posts_url
   end
 
-  private
+private
 
   def post_params
     params.require(:post).permit(:content, :title, :image, :category_id)
+  end
+
+  def set_target_post
+    @post = Post.find(params[:id])
   end
 end
