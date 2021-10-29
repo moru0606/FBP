@@ -12,3 +12,105 @@
  *
  */
 @import "bootstrap";
+
+.container{
+  min-height: 100vh;
+  position: relative;
+  padding-bottom: 120px;
+  box-sizing: border-box;
+}
+
+.main h1 {
+font-size: 3em;
+letter-spacing: -2px;
+margin-bottom: 30px;
+text-align: center;
+}
+
+h3 {
+font-size: 1.8em;
+letter-spacing: -1px;
+font-family: HiraKakuProN-W6;
+margin-bottom: 30px;
+text-align: center;
+font-weight: normal;
+color: #444;
+}
+
+// p {
+// font-size: 1.3em;
+// line-height: 1.7em;
+// }
+
+h6 {
+  padding-left: 40px;
+  letter-spacing: 3px;
+  font-family: "Comic Sans MS";
+}
+
+.main{
+  padding-top: 10px;
+  padding-bottom: 20px;
+  background-color:#CCC;
+}
+
+.post_bottom_box{
+display: flex;
+justify-content: space-between;
+}
+
+.raw_left{
+display: flex;
+margin-left: 15px;
+gap: 14px;
+}
+
+.raw_right{
+display: flex;
+align-self: flex-start;
+}
+
+.like-btn{
+font-size: 18px;
+color: #8899a6;
+}
+
+.unlike-btn{
+font-size: 18px;
+color: #e54747;
+}
+
+.fa-comment-dots{
+color:gray;
+}
+
+.fa-eye{
+color:gray;
+}
+
+a{
+text-decoration: none;
+}
+
+.comment_group_item{
+display:flex
+}
+
+.comment_box{
+display: flex;
+}
+
+.item_rigth{
+white-space: nowrap
+}
+
+footer {
+  margin-top: 45px;
+  padding-top: 5px;
+  border-top: 1px solid #eaeaea;
+  color: #777;
+}
+
+footer small {
+  float: left;
+}

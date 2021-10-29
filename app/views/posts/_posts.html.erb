@@ -1,21 +1,17 @@
 <div class="top__items">
-
-
   <div class="ml-auto boards__linkBox">
-    <%= form_with url: posts_path, method: :get, class: 'posts__searchForm' do %>
+    <%= form_with url: posts_path, method: :get, class: 'boards__searchForm' do %>
       <%= select_tag :category_id,
-                    options_from_collection_for_select(Category.all, :id, :name, params[:category_id]),
-                    {
-                      prompt: 'カテゴリーを選択',
-                      class: 'form-control posts_select',
-                      onchange: 'submit(this.form);'
-                    } %>
+                      options_from_collection_for_select(Category.all, :id, :name, params[:category_id]),
+                      {
+                        prompt: 'カテゴリーを選択',
+                        class: 'form-control boards_select',
+                        onchange: 'submit(this.form);'
+                      } %>
     <% end %>
   </div>
-    
 <div class="card">
   <% @posts.each do |post| %>
-  
   <div class="card-header">
     <%= link_to post.user.name, user_path(post.user), class: "text-decoration-none" %> <span class="text-muted">投稿日時 <%= post.created_at.to_s(:datetime_jp) %></span>
   </div>
@@ -25,20 +21,17 @@
     <h5 class="card-title text-center">タイトル：<%= link_to post.title, post %></h5>
     <p class="card-text"></p>
   
-  </div>
+</div>
   <div class="post_bottom_box">
   <div class="raw_left">
     <p class="like_count"><%= render "likes/like", post: post %></p>
     <p class="comment_count"><i class="far fa-comment-dots"></i> <%= post.comments.count %></p>
-    
-    </div>
-    <div class="raw_right">
+  </div>
+  <div class="raw_right">
     <% if logged_in? && current_user.id == post.user_id %>
-    
-    <%= link_to '削除', post, class: 'btn btn-outline-danger', method: :delete, data: { confirm: '  本当に削除してよろしいですか？'} %>
+    <%= link_to '削除', post_path(post.id), class: "btn btn-outline-danger", method: :delete, data: { confirm: '本当にいいですか?' } %>
     <% end %>
-      </div>
-      </div>
-    <% end %>
-  
+  </div>
+  </div>
+  <% end %>
 </div>

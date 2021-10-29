@@ -1,27 +1,21 @@
 <div class="card">
   <div class="card-header">
-  <h4><%= @user.name %>詳細ページ</h4>
+    <h2><%= @user.name %>マイページ</h2>
   </div>
-
   <div class="card-body">
-      
-    <% if @user.image? %>                                                              
+    <% if @user.image? %>
       <%= image_tag @user.image.url, class: "rounded-circle", size: "150x150" %>
     <!--##画像が設定されてない場合-->
     <% else %>
       <%= image_tag "default.png", size: "150x150" %>
     <% end %>
-
     <h5 class="card-title">プロフィール</h5>
-    <p class="card-text"><%= simple_format(@user.profile) %></p> 
-      <% @posts.each do |post| %>
-          <hr>
-          <p>投稿内容: <%=link_to post.content, post_path(post.id) %></p>
-        <% end %>
-  </div>    
+    <p class="card-text"><%= simple_format(@user.profile) %></p>
+    <% @posts.each do |post| %>
+    <hr>
+      <p>投稿内容: <%=link_to post.content, post_path(post.id) %></p>
+    <% end %>
+  </div>
 </div>
-
-  
-    <%= link_to '編集ページ',edit_user_path(@user),class: 'btn btn-outline-success' %>
-  
-    <%= link_to '投稿一覧', posts_path, class: 'btn btn-outline-secondary' %>
+<%= link_to '編集ページ',edit_user_path(@user),class: 'btn btn-outline-success' %>
+<%= link_to '投稿一覧', posts_path, class: 'btn btn-outline-secondary' %>

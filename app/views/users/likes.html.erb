@@ -1,28 +1,28 @@
-<h1>お気に入り</h1>
-  <div class="card">
-    <div class="card-header">
-      <h3 class="card-title"><%= @user.name %></h3>
-  </div>
-  <div class="card-body">
-    <p>お気に入り一覧</p>
-      
-      <% @like_posts.each do |post| %>
-        <hr>
-        <% if logged_in? %>
-          <% if current_user.like?(post)  %> 
-            <%=link_to post_likes_path(post), method: :delete do %>
-            <i class="fas fa-heart unlike-btn"></i>
+<div class="top__items">
+  <h2>お気に入り</h2>
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title"><%= @user.name %></h3>
+      </div>
+    <div class="card-body">
+      <p>お気に入り一覧</p>
+        
+        <% @like_posts.each do |post| %>
+          <hr>
+          <% if logged_in? %>
+            <% if current_user.like?(post)  %> 
+              <%=link_to post_likes_path(post), method: :delete do %>
+              <i class="fas fa-heart unlike-btn"></i>
+            <% end %>
+            <% else %>
+              <%=link_to post_likes_path(post), method: :post do %>
+              <i class="fas fa-heart like-btn"></i>
+            <% end %>
+            <% end %>
           <% end %>
-          <% else %>
-            <%=link_to post_likes_path(post), method: :post do %>
-            <i class="fas fa-heart like-btn"></i>
-          <% end %>
-          <% end %>
+          <p>お気に入り投稿内容: <%= post.user.name %> : <%=link_to post.content, post_path(post.id) %></p>
         <% end %>
-        <p>お気に入り投稿内容: <%= post.user.name %> : <%=link_to post.content, post_path(post.id) %></p>
-      <% end %>
-      
-  </div>
-  
-  </div>
+      </div>
+    </div>
     <%= link_to '一覧戻る', posts_path, class: 'btn btn-outline-secondary' %>
+</div>

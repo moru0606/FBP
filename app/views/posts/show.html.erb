@@ -1,10 +1,16 @@
-<h4><%= @post.title %></h4>
-  <%= link_to '一覧に戻る', posts_path, class: 'btn-btn-outline-secondary' %>
-  <Hr>
-  <div>タイトル:<%= @post.title %></div>
-  <div>内容:<%= simple_format(@post.content) %></div>
-  <div><%= image_tag @post.image.url, size: "150x150" if @post.image? %></div>
-  <Hr>
-  <div><%= render @post.comments %></div>
-  <div><%= render 'comments/form' %>
-  </div>
+<div class="top__items">
+  <h1 class="text-center">投稿詳細ページ</h1>
+    <%= link_to '一覧戻る', posts_path, class: 'btn btn-outline-secondary' %>
+    <Hr>
+  <h4>タイトル：<%= @post.title %></h4>
+    <p><%= image_tag @post.image.url, size: "150x150" if @post.image? %></p>
+    <p><%= @post.user.name %> : <%= @post.created_at.to_s(:datetime_jp) %></p>
+    <h5>内容：<%= simple_format(@post.content) %></h5>
+    <p class="comment_count"><i class="far fa-comment-dots"></i> <%= @post.comments.length %>件のコメント数</p>
+  <div class="comment_list">
+    <Hr>
+    <p><%= render @post.comments %></p>
+  </div> 
+</div>
+<h4>コメント投稿</h4>
+<%= render "comments/form" %>
