@@ -1,7 +1,8 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid ps-5 pe-5">
     <a class="navbar-brand" href="/">FrenchBulldogPosts</a>
-    <button class="navbar-toggler" type="button" data-btoggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-btoggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
@@ -12,19 +13,20 @@
           <li class="ms-3"><%= link_to '投稿する', new_post_path, class: 'nav-link' %></li>
         </ul>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
             <%= current_user.name %>
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          
+
             <%= link_to 'プロフィール', user_path(current_user), class: 'dropdown-item' %>
             <%= link_to '投稿一覧', posts_path, class: 'dropdown-item' %>
             <%= link_to 'お気に入り', likes_user_path(current_user), class: 'dropdown-item' %>
             <%= link_to 'ログアウト', logout_path, method: :delete, class: 'dropdown-item' %>
-          <% else %>
+            <% else %>
             <%= link_to '新規登録', signup_path, class: 'nav-link' %>
             <%= link_to 'ログイン', login_path, class: 'nav-link' %>
-          <% end %>
+            <% end %>
           </div>
         </li>
       </ul>
