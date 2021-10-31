@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :require_user_logged_in?, only: %i[show edit likes]
-  before_action :correct_user_page, only: [:edit]
+  before_action :correct_user_page, only: [:edit, :likes]
 
   def show
     @user = User.find(params[:id])
@@ -29,6 +29,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
+      flash[:success] = 'プロフィールを編集しました'
       redirect_to @user
     else
       render :edit
@@ -45,7 +46,7 @@ end
 private
 
 def user_params
-  params.require(:user).permit(:name, :email, :password, :password_confirmation, :image, :profile )
+  params.require(:user).permit(:name, :email, :password, :password_confirmation, :image, :profile)
 end
 
 def correct_user_page

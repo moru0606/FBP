@@ -11,7 +11,7 @@
         <div class="comment_box">
             <div class="item_left">
                 <p><%= comment.user.name %> : <%= comment.created_at.to_s(:datetime_jp) %></p>
-                <h5><%= simple_format(comment.comment) %></h5>
+                <p><%= simple_format(comment.comment) %></p>
             </div>
             <div class="item_rigth">
                 <% if logged_in? && current_user.id == comment.user_id %>

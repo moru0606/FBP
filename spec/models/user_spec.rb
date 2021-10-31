@@ -55,10 +55,6 @@ RSpec.describe User, type: :model do
       @user.password = nil
       expect(@user.valid?).to eq(false)
     end
-    it 'passwordの文字数が7文字の場合作成できない' do
-      @user.password = 'abcdefg'
-      expect(@user.valid?).to eq(false)
-    end
     it 'passwordの文字数が72文字を超える場合作成できない' do
       @user.password = 'n' * 73
       expect(@user.valid?).to eq(false)
