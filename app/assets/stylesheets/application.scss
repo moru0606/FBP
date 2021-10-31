@@ -27,23 +27,7 @@ margin-bottom: 30px;
 text-align: center;
 }
 
-h3 {
-font-size: 1.8em;
-letter-spacing: -1px;
-font-family: HiraKakuProN-W6;
-margin-bottom: 30px;
-text-align: center;
-font-weight: normal;
-color: #444;
-}
-
-// p {
-// font-size: 1.3em;
-// line-height: 1.7em;
-// }
-
 h6 {
-  padding-left: 25px;
   letter-spacing: 3px;
   font-family: "Comic Sans MS";
 }
@@ -84,10 +68,6 @@ color: #e54747;
 color:gray;
 }
 
-.fa-eye{
-color:gray;
-}
-
 a{
 text-decoration: none;
 }
@@ -115,3 +95,9 @@ footer {
 footer small {
   float: left;
 }
+
+body, html { font-size: 14px; }
+@media screen and (min-width: 576px) and (max-width: 768px) { body, html { font-size: 30px; } }
+@media screen and (min-width: 769px) and (max-width: 992px) { body, html { font-size: 18px; } }
+@media screen and (min-width: 993px) and (max-width: 1200px) { body, html { font-size: 20px; } }
+@media screen and (min-width: 1201px) { body, html { font-size: 16px; } }
