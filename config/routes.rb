@@ -12,7 +12,7 @@ Rails.application.routes.draw do
       get :likes
     end
   end
-  resources :categories
+  resources :categories, only: %i[create]
   resources :posts do
     resource :likes, only: %i[create destroy]
     resources :comments, only: %i[create destroy]

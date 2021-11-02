@@ -30,7 +30,7 @@ class PostsController < ApplicationController
     redirect_to posts_url
   end
 
-private
+  private
 
   def post_params
     params.require(:post).permit(:content, :title, :image, :category_id)
