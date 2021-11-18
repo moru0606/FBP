@@ -38,6 +38,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'jquery-rails'
 gem 'bootstrap', '~> 4.1.3'
 gem 'carrierwave'
+gem 'mini_magick'
 gem 'rails-i18n'
 gem 'pagy'
 
